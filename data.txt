@@ -1,0 +1,44 @@
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE car_listings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    make VARCHAR(50) NOT NULL,
+    model VARCHAR(50) NOT NULL,
+    year INT NOT NULL,
+    fuel_type VARCHAR(20) NOT NULL,
+    transmission VARCHAR(20) NOT NULL,
+    registration_place VARCHAR(100) NOT NULL,
+    registration_number VARCHAR(20),
+    ownership VARCHAR(20) NOT NULL,
+    car_condition VARCHAR(20) NOT NULL,
+    color VARCHAR(30) NOT NULL,
+    front_photo VARCHAR(255) NOT NULL,
+    rear_photo VARCHAR(255) NOT NULL,
+    left_photo VARCHAR(255) NOT NULL,
+    right_photo VARCHAR(255) NOT NULL,
+    dashboard_photo VARCHAR(255) NOT NULL,
+    seller_name VARCHAR(100) NOT NULL,
+    seller_phone VARCHAR(15) NOT NULL,
+    asking_price DECIMAL(10,2) NOT NULL,
+    minimum_price DECIMAL(10,2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE cart (
+    cart_id INT AUTO_INCREMENT PRIMARY KEY,
+    car_id INT NOT NULL,
+    make VARCHAR(50) NOT NULL,
+    model VARCHAR(50) NOT NULL,
+    year INT NOT NULL,
+    asking_price DECIMAL(10,2) NOT NULL,
+    front_photo VARCHAR(255) NOT NULL,
+    added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (car_id) REFERENCES car_listings(id)
+);

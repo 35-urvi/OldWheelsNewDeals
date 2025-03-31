@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Car page</title>
+    <link rel="icon" type="image/webp" href="photo/ownd.webp">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/sell.css">
+</head>
+<body>
+    <nav>
+        <div class="nav__header">
+          <div class="nav__logo">
+            <a href="#"><img src="photo/ownd.webp" alt="old wheels new deals" height="52px"></a>
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="buy.html">Buy Car</a></li>
+          <li><a href="sell.html">Sell Car</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="review.html">Reviews</a></li>
+          <li class="nav__links__btn">
+            <a href="cart.login"><button class="btn">cart</i></button></a>
+          </li>
+          <li class="nav__links__btn">
+            <a href="login.html"><button class="btn">Logout</button></a>
+          </li>
+        </ul>
+        <div class="nav__btns">
+          <a href="cart.html"><button class="btn btn__primary"><i class="fa fa-shopping-cart" id="cart-icon"></i></button></a>
+          <a href="login.html"><button class="btn btn__secondary">Logout</button></a>
+        </div>
+      </nav>  
+
+      <div class="section__container">
+      <div class="sell_title">
+        <h1>Sell Your Valued Car Here</h1>
+      </div>
+     
+      <section class="service__container" id="service">
+        <div class="service__image">
+        <img src="photo/service.png" alt="service"/>
+        </div>
+        <div class="service__content">
+          <h2 class="section__header">
+            Feel the best experience with Old Wheels New Deals
+          </h2>
+          <ul class="service__list">
+            <li>
+              <span><i class="ri-price-tag-3-fill"></i></span>
+              <div>
+                <h4>Deals for every budget</h4>
+                <p>
+                  From economy cars to luxury vehicles, we have something for
+                  everyone, ensuring you get the best value for your money.
+                </p>
+              </div>
+            </li>
+            <li>
+              <span><i class="ri-wallet-fill"></i></span>
+              <div>
+                <h4>Best price guarantee</h4>
+                <p>
+                  We ensure you get competitive rates in the market, so you can
+                  book with confidence knowing you're getting the best deal.
+                </p>
+              </div>
+            </li>
+            <li>
+                    <button class="sell-button" id="sellButton">Sell Your Car Now</button>
+            </li>
+          </ul>
+        </div>
+      </section>
+      </div>
+   
+    <div class="form-group">
+        <form class="form-container" id="sellForm" action="process_sell.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Make (Brand)</label>
+                <input type="text" name="make" required>
+            </div>
+    
+            <div class="form-group">
+                <label>Model</label>
+                <input type="text" name="model" required>
+            </div>
+    
+            <div class="form-group">
+                <label>Year of Manufacture</label>
+                <input type="number" name="year" min="1900" max="2024" required>
+            </div>
+    
+            <div class="form-group">
+                <label>Fuel Type</label>
+                <select name="fuel_type" required>
+                    <option value="">Select Fuel Type</option>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="CNG">CNG</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label>Transmission Type</label>
+                <select name="transmission" required>
+                    <option value="">Select Transmission</option>
+                    <option value="Manual">Manual</option>
+                    <option value="Automatic">Automatic</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label>Registered State & City</label>
+                <input type="text" name="registration_place" required>
+            </div>
+    
+            <div class="form-group">
+                <label>Registration Number (Optional)</label>
+                <input type="text" name="registration_number">
+            </div>
+    
+            <div class="form-group">
+                <label>Ownership Type</label>
+                <select name="ownership" required>
+                    <option value="">Select Ownership</option>
+                    <option value="First">First Owner</option>
+                    <option value="Second">Second Owner</option>
+                    <option value="Third">Third Owner</option>
+                    <option value="Fourth+">Fourth or More</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label>Car Condition</label>
+                <select name="condition" required>
+                    <option value="">Select Condition</option>
+                    <option value="Excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                    <option value="Needs Repair">Needs Repair</option>
+                </select>
+            </div>
+    
+            <div class="form-group">
+                <label>Car Color</label>
+                <input type="text" name="color" required>
+            </div>
+    
+        <label>Photo Upload</label>
+        <div class="preview-container">
+            <div class="preview-box" data-input="front_photo">
+                <input type="file" name="front_photo" accept="image/*" required hidden>
+                <img src="" alt="Front View Preview">
+                <div class="upload-text">
+                    <i class="ri-upload-cloud-line" style="font-size: 2rem;"></i>
+                    <p>Front View</p>
+                    <small>Click to upload</small>
+                </div>
+                <button type="button" class="remove-image">&times;</button>
+            </div>
+            <div class="preview-box" data-input="rear_photo">
+                <input type="file" name="rear_photo" accept="image/*" required hidden>
+                <img src="" alt="Rear View Preview">
+                <div class="upload-text">
+                    <i class="ri-upload-cloud-line" style="font-size: 2rem;"></i>
+                    <p>Rear View</p>
+                    <small>Click to upload</small>
+                </div>
+                <button type="button" class="remove-image">&times;</button>
+            </div>
+            <div class="preview-box" data-input="left_photo">
+                <input type="file" name="left_photo" accept="image/*" required hidden>
+                <img src="" alt="left View Preview">
+                <div class="upload-text">
+                    <i class="ri-upload-cloud-line" style="font-size: 2rem;"></i>
+                    <p>left View</p>
+                    <small>Click to upload</small>
+                </div>
+                <button type="button" class="remove-image">&times;</button>
+            </div>
+            <div class="preview-box" data-input="right_photo">
+                <input type="file" name="right_photo" accept="image/*" required hidden>
+                <img src="" alt="right View Preview">
+                <div class="upload-text">
+                    <i class="ri-upload-cloud-line" style="font-size: 2rem;"></i>
+                    <p>right View</p>
+                    <small>Click to upload</small>
+                </div>
+                <button type="button" class="remove-image">&times;</button>
+            </div>
+            <div class="preview-box" data-input="dashboard_photo">
+                <input type="file" name="dashboard_photo" accept="image/*" required hidden>
+                <img src="" alt="dashboard View Preview">
+                <div class="upload-text">
+                    <i class="ri-upload-cloud-line" style="font-size: 2rem;"></i>
+                    <p>dashboard View</p>
+                    <small>Click to upload</small>
+                </div>
+                <button type="button" class="remove-image">&times;</button>
+            </div>
+        </div>
+    <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" name="seller_name" required>
+    </div>
+
+    <div class="form-group">
+        <label>Mobile Number</label>
+        <input type="tel" name="seller_phone" required>
+    </div>
+
+    <div class="form-group">
+        <label>Asking Price (₹)</label>
+        <input type="number" name="asking_price" required>
+    </div>
+
+    <div class="form-group">
+        <label>Minimum Acceptable Price (₹)</label>
+        <input type="number" name="minimum_price" required>
+    </div>
+
+    <div class="progress-container">
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+        <p class="progress-text" style="text-align: center; margin-top: 10px;">Uploading... 0%</p>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit Listing</button>
+</form>
+    </div>
+
+<div class="overlay"></div>
+<div class="popup">
+    <div class="popup-content">
+        <h3></h3>
+        <p></p>
+        <button class="popup-close">Close</button>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="section__container footer__container">
+      <div class="footer__col">
+        <h4>Available at</h4>
+        <ul class="footer__links">
+          <li><a><i class="fa-solid fa-location-dot"></i> Ahmedabad</a></li>
+          <li><a><i class="fa-solid fa-location-dot"></i> Surat</a></li>
+          <li><a><i class="fa-solid fa-location-dot"></i> Rajkot</a></li>
+          <li><a><i class="fa-solid fa-location-dot"></i> Vadodara</a></li>
+          <li><a><i class="fa-solid fa-location-dot"></i> Jamnagar</a></li>
+          <li><a><i class="fa-solid fa-location-dot"></i> Kutch</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Quick links</h4>
+        <ul class="footer__links">
+          <li><a href="home.html"><i class="fa-solid fa-arrow-right"></i> Home</a></li>
+          <li><a href="buy.html"><i class="fa-solid fa-arrow-right"></i> Buy Car</a></li>
+          <li><a href="sell.html"><i class="fa-solid fa-arrow-right"></i> Sell Car</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-arrow-right"></i> Contact</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-arrow-right"></i> About</a></li>
+          <li><a href="review.html"><i class="fa-solid fa-arrow-right"></i> Review</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul class="footer__links">
+          <li><a><i class="fa-solid fa-phone"></i> 079-7894561</a></li>
+          <li><a><i class="fa-solid fa-phone"></i> 4521789630</a></li>
+          <li><a><i class="fa-solid fa-envelope"></i> wheelsdeals@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Social Media</h4>
+        <ul class="footer__links">
+          <li><a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank"><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+          <li><a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+          <li><a href="https://twitter.com/intent/tweet?url=" target="_blank"><i class="fa-brands fa-twitter"></i> Twiter</a></li>
+          <li><a href="https://www.linkedin.com/learning/" target="_blank"><i class="fa-brands fa-linkedin"></i> Linkedin</a></li>
+        </ul>
+      </div>
+    </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="JS\main.js"></script>
+    <script src="JS\sell.js"></script>
+   
+</body>
+</html>

@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+:root {
+  --primary-color: #fe5b3e;
+  --text-dark: #0f172a;
+  --text-light: #475569;
+  --extra-light: #f2f2f2;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --gradient: linear-gradient(to bottom, #fe5c3c, #fc8023);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+      .section__container {
+        max-width: var(--max-width);
+        margin: auto;
+        padding: 2rem 1rem;
+    }
+
+      .contact-container {
+        max-width: var(--max-width);
+        margin: 1rem auto;
+        padding:auto 1rem;
+      }
+
+      .contact-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .contact-header h1 {
+        font-size: 5rem;
+        color: var(--text-dark);
+        /* margin-bottom: 1rem; */
+        /* border:5px solid #fc8023;  */
+        margin-top: 2rem;
+        font-weight: bolder;
+        text-decoration: underline;
+        text-decoration-color:#fe5c3c;
+      }
+
+      .contact-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .map-container {
+        width: 100%;
+        height: 600px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .contact-form {
+        background: var(--gradient);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-header {
+        margin-bottom: 2rem;
+      }
+
+      .form-header h2 {
+        font-size: 2rem;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: "Mulish", sans-serif;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+
+      .form-group textarea {
+        height: 150px;
+        resize: vertical;
+      }
+
+      .send-btn {
+        background-color:  #f9be90;
+        color: var(--text-dark);
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+        width: 100%;
+      }
+
+      .send-btn:hover {
+        background-color: #ffed4a;
+        transform: translateY(-2px);
+      }
+
+      @media (width > 768px) {
+        .contact-content {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+       /* Add popup styles */
+       .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .popup {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        position: relative;
+        animation: popupAnimation 0.3s ease-out;
+      }
+
+      @keyframes popupAnimation {
+        from {
+          transform: scale(0.7);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .popup h2 {
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .popup p {
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+      }
+
+      .popup-close {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .popup-close:hover {
+        background: #e54d32;
+      }
+
+      .success-icon {
+        width: 60px;
+        height: 60px;
+        background: #4CAF50;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+      }
+
+      .success-icon i {
+        color: white;
+        font-size: 2rem;
+      }

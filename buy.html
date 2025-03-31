@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy Car page</title>
+    <link rel="icon" type="image/webp" href="photo/ownd.webp">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/buy.css">
+</head>
+<body>
+    <nav>
+        <div class="nav__header">
+          <div class="nav__logo">
+            <a href="#"><img src="photo/ownd.webp" alt="old wheels new deals" height="52px"></a>
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="buy.html">Buy Car</a></li>
+          <li><a href="sell.html">Sell Car</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="review.html">Reviews</a></li>
+          <li class="nav__links__btn">
+            <a href="cart.login"><button class="btn">cart</i></button></a>
+          </li>
+          <li class="nav__links__btn">
+            <a href="login.html"><button class="btn">Logout</button></a>
+          </li>
+        </ul>
+        <div class="nav__btns">
+          <a href="cart.html"><button class="btn btn__primary"><i class="fa fa-shopping-cart" id="cart-icon"></i></button></a>
+          <a href="login.html"><button class="btn btn__secondary">Logout</button></a>
+        </div>
+      </nav>
+
+
+      <div class="section__container">
+        <div class="buy_title">
+          <h1>Buy Your Dream Car Here</h1>
+        </div>
+      </div>
+    <!-- Search and Sort Section -->
+    <div class="search-container">
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search your dream car..." id="searchInput">
+        </div>
+        <div class="sort-container">
+            <button class="sort-btn" data-sort="price">Sort by Price</button>
+            <button class="sort-btn" data-sort="make">Sort by Make</button>
+            <button class="sort-btn" data-sort="year">Sort by Year</button>
+        </div>
+    </div>
+
+    <!-- Car Grid -->
+    <div class="car-grid" id="carGrid"></div>
+
+    <!-- Car Details Modal -->
+    <div class="modal" id="carModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Buy Now Modal -->
+    <div class="modal" id="buyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Car Details</h2>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div id="carDetails"></div>
+            <div class="form-group">
+                <label for="offerPrice">Enter Your Offer Price (₹):</label>
+                <input type="number" id="offerPrice" required>
+            </div>
+            <button class="btn btn-buy" onclick="confirmPurchase()">Confirm Purchase</button>
+        </div>
+    </div>
+
+    <!-- Reuse the footer from index.html -->
+    <footer class="footer">
+        <div class="section__container footer__container">
+          <div class="footer__col">
+            <h4>Available at</h4>
+            <ul class="footer__links">
+              <li><a><i class="fa-solid fa-location-dot"></i> Ahmedabad</a></li>
+              <li><a><i class="fa-solid fa-location-dot"></i> Surat</a></li>
+              <li><a><i class="fa-solid fa-location-dot"></i> Rajkot</a></li>
+              <li><a><i class="fa-solid fa-location-dot"></i> Vadodara</a></li>
+              <li><a><i class="fa-solid fa-location-dot"></i> Jamnagar</a></li>
+              <li><a><i class="fa-solid fa-location-dot"></i> Kutch</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Quick links</h4>
+            <ul class="footer__links">
+              <li><a href="home.html"><i class="fa-solid fa-arrow-right"></i> Home</a></li>
+              <li><a href="buy.html"><i class="fa-solid fa-arrow-right"></i> Buy Car</a></li>
+              <li><a href="sell.html"><i class="fa-solid fa-arrow-right"></i> Sell Car</a></li>
+              <li><a href="contact.html"><i class="fa-solid fa-arrow-right"></i> Contact</a></li>
+              <li><a href="about.html"><i class="fa-solid fa-arrow-right"></i> About</a></li>
+              <li><a href="review.html"><i class="fa-solid fa-arrow-right"></i> Review</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Contact</h4>
+            <ul class="footer__links">
+              <li><a><i class="fa-solid fa-phone"></i> 079-7894561</a></li>
+              <li><a><i class="fa-solid fa-phone"></i> 4521789630</a></li>
+              <li><a><i class="fa-solid fa-envelope"></i> wheelsdeals@gmail.com</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Social Media</h4>
+            <ul class="footer__links">
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank"><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+              <li><a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+              <li><a href="https://twitter.com/intent/tweet?url=" target="_blank"><i class="fa-brands fa-twitter"></i> Twiter</a></li>
+              <li><a href="https://www.linkedin.com/learning/" target="_blank"><i class="fa-brands fa-linkedin"></i> Linkedin</a></li>
+            </ul>
+          </div>
+        </div>
+        </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="JS\main.js"></script>
+    <script src="JS\buy.js"></script>
+   
+</body>
+</html>

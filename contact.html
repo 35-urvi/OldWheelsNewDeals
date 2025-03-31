@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us page</title>
+    <link rel="icon" type="image/webp" href="photo/ownd.webp">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/contact.css">
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="#"><img src="photo/ownd.webp" alt="old wheels new deals" height="52px"></a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="ri-menu-line"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="buy.html">Buy Car</a></li>
+        <li><a href="sell.html">Sell Car</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="review.html">Reviews</a></li>
+        <li class="nav__links__btn">
+          <a href="cart.login"><button class="btn">cart</i></button></a>
+        </li>
+        <li class="nav__links__btn">
+          <a href="login.html"><button class="btn">Logout</button></a>
+        </li>
+      </ul>
+      <div class="nav__btns">
+        <a href="cart.html"><button class="btn btn__primary"><i class="fa fa-shopping-cart" id="cart-icon"></i></button></a>
+        <a href="login.html"><button class="btn btn__secondary">Logout</button></a>
+      </div>
+    </nav>
+
+   
+
+    <main class="section__container">
+      <div class="contact-container">
+        <div class="contact-header">
+          <h1>Contact Us</h1>
+        </div>
+        
+        <div class="contact-content">
+          <div class="map-container">
+            <iframe
+            src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d280579.59170415986!2d72.42978085700534!3d23.129635475749154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sua%20motors%20gota!5e0!3m2!1sen!2sin!4v1740158705302!5m2!1sen!2sin">
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+
+          <div class="contact-form">
+            <div class="form-header">
+              <h2>Get In Touch</h2>
+            </div>
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" id="name" placeholder="Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" id="email" placeholder="Email" required>
+              </div>
+              <div class="form-group">
+                <input type="tel" id="number" placeholder="Phone Number" required>
+              </div>
+              <div class="form-group">
+                <textarea id="message" placeholder="Your Message" required></textarea>
+              </div>
+              <button type="submit" class="send-btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+          <div class="success-icon">
+            <i class="ri-check-line"></i>
+          </div>
+          <h2>Thank You!</h2>
+          <p>Your message has been sent successfully. We'll get back to you soon.</p>
+          <button class="popup-close" id="popupClose">Close</button>
+        </div>
+      </div>
+
+   <footer class="footer">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <h4>Available at</h4>
+          <ul class="footer__links">
+            <li><a><i class="fa-solid fa-location-dot"></i> Ahmedabad</a></li>
+            <li><a><i class="fa-solid fa-location-dot"></i> Surat</a></li>
+            <li><a><i class="fa-solid fa-location-dot"></i> Rajkot</a></li>
+            <li><a><i class="fa-solid fa-location-dot"></i> Vadodara</a></li>
+            <li><a><i class="fa-solid fa-location-dot"></i> Jamnagar</a></li>
+            <li><a><i class="fa-solid fa-location-dot"></i> Kutch</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Quick links</h4>
+          <ul class="footer__links">
+            <li><a href="home.html"><i class="fa-solid fa-arrow-right"></i> Home</a></li>
+            <li><a href="buy.html"><i class="fa-solid fa-arrow-right"></i> Buy Car</a></li>
+            <li><a href="sell.html"><i class="fa-solid fa-arrow-right"></i> Sell Car</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-arrow-right"></i> Contact</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-arrow-right"></i> About</a></li>
+            <li><a href="review.html"><i class="fa-solid fa-arrow-right"></i> Review</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul class="footer__links">
+            <li><a><i class="fa-solid fa-phone"></i> 079-7894561</a></li>
+            <li><a><i class="fa-solid fa-phone"></i> 4521789630</a></li>
+            <li><a><i class="fa-solid fa-envelope"></i> wheelsdeals@gmail.com</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Social Media</h4>
+          <ul class="footer__links">
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank"><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+            <li><a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+            <li><a href="https://twitter.com/intent/tweet?url=" target="_blank"><i class="fa-brands fa-twitter"></i> Twiter</a></li>
+            <li><a href="https://www.linkedin.com/learning/" target="_blank"><i class="fa-brands fa-linkedin"></i> Linkedin</a></li>
+          </ul>
+        </div>
+      </div>
+      </footer>
+   
+      <script src="https://unpkg.com/scrollreveal"></script>
+      <script src="JS\main.js"></script>
+      <script src="JS\contact.js"></script>
+  </body>
+</html>

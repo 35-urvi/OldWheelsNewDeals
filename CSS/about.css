@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+:root {
+  --primary-color: #fe5b3e;
+  --text-dark: #0f172a;
+  --text-light: #475569;
+  --extra-light: #f2f2f2;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --gradient: linear-gradient(to bottom, #fe5c3c, #fc8023);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+    .section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 1rem 1rem;
+    }
+
+      .about__container {
+        padding-top: 2rem;
+      }
+
+      .about__header {
+        text-align: center;
+        margin-bottom: 2rem;
+        
+      }
+
+      .about__header h1 {
+        font-size: 5rem;
+        color: var(--text-dark);
+        /* margin-bottom: 1rem; */
+        /* border:5px solid #fc8023;  */
+        margin-top: 2rem;
+        font-weight: bolder;
+        text-decoration: underline;
+        text-decoration-color:#fe5c3c;
+    }
+
+      .about__content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 12px;
+        line-height: 1.6;
+        border-radius: 8px;
+       /* border:7px solid black; */
+       background: var(--gradient);
+          }
+
+      .about__content p {
+        margin-bottom: 2rem;
+        font-weight: bold;
+        color: black;
+      }
+
+      .why-us__container {
+        text-align: center;
+      }
+
+      .why-us__header {
+        margin-bottom: 3rem;
+      }
+
+      .why-us__header h2 {
+        font-size: 3.5rem;
+        color: var(--text-dark);
+        font-weight: bolder;
+        text-decoration: underline;
+        text-decoration-color:#fe5c3c;
+      }
+
+      .features__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .feature__card {
+        background-color: var(--white);
+        padding: 2rem;
+        background: var(--gradient);
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature__card h3 {
+        padding: 1rem;
+        color:black;
+        background-color: #f9be90;
+        /* font-weight: bold; */
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        text-decoration: underline;
+        text-decoration-color:#fe5c3c;
+      }
+
+      .feature__card p {
+        color: black;
+        line-height: 1.6;
+      }
+
+
+      @media (min-width: 1024px) {
+        .features__grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      } 

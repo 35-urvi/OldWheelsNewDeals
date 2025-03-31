@@ -1,0 +1,355 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart page</title>
+    <link rel="icon" type="image/webp" href="photo/ownd.webp">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/cart.css">
+    <style>
+      
+    .section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 2rem 1rem;
+    }
+
+    .cart_title{
+            font-size: 2rem;
+            color: var(--text-dark);
+            font-weight: bolder;
+            justify-self: center;
+            margin-top:2.25rem;
+            /* margin-bottom: 1rem; */
+            font-weight: bolder;
+            text-decoration: underline;
+            text-decoration-color:#fe5c3c;
+}
+        .cart-container {
+            max-width: var(--max-width);
+            margin: 2rem auto 2rem;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .car-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .car-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .car-info {
+            padding: 1.5rem;
+        }
+
+        .car-info-table {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-collapse: collapse;
+        }
+
+        .car-info-table td {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--extra-light);
+        }
+
+        .car-info-table td:first-child {
+            color: var(--text-light);
+            width: 40%;
+        }
+
+        .car-info-table td:last-child {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-buy {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-buy:hover {
+            background: #e54d33;
+        }
+
+        .btn-remove {
+            background: var(--text-light);
+            color: var(--white);
+        }
+
+        .btn-remove:hover {
+            background: #3a4454;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--extra-light);
+        }
+
+        .modal-header h2 {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+        }
+
+        .close {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .car-details-table {
+            width: 100%;
+            margin-bottom: 2rem;
+            border-collapse: collapse;
+        }
+
+        .car-details-table tr {
+            border-bottom: 1px solid var(--extra-light);
+        }
+
+        .car-details-table td {
+            padding: 12px 8px;
+        }
+
+        .car-details-table td:first-child {
+            color: var(--text-light);
+            width: 40%;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--text-light);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .message-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1100;
+        }
+
+        .message-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .message-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        @media (width > 768px) {
+            .nav__menu__btn {
+                display: none;
+            }
+
+            .nav__links {
+                position: static;
+                padding: 0;
+                width: fit-content;
+                flex-direction: row;
+                background-color: transparent;
+                transform: none;
+            }
+
+            .nav__btns {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav__header">
+          <div class="nav__logo">
+            <a href="#"><img src="photo/ownd.webp" alt="old wheels new deals" height="52px"></a>
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="buy.html">Buy Car</a></li>
+          <li><a href="sell.html">Sell Car</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="review.html">Reviews</a></li>
+          <li class="nav__links__btn">
+            <a href="cart.login"><button class="btn">cart</i></button></a>
+          </li>
+          <li class="nav__links__btn">
+            <a href="login.html"><button class="btn">Logout</button></a>
+          </li>
+        </ul>
+        <div class="nav__btns">
+          <a href="cart.html"><button class="btn btn__primary"><i class="fa fa-shopping-cart" id="cart-icon"></i></button></a>
+          <a href="login.html"><button class="btn btn__secondary">Logout</button></a>
+        </div>
+      </nav>
+
+      <div class="section__container">
+        <div class="cart_title">
+          <h1>Your Cart</h1>
+        </div>
+      </div>
+
+    <div class="cart-container" id="cartContainer">
+        <!-- Cart items will be loaded here -->
+    </div>
+
+    <!-- Buy Modal -->
+    <div class="modal" id="buyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Car Details</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div id="carDetails"></div>
+            <div class="form-group">
+                <label for="offerPrice">Enter Your Offer Price (₹):</label>
+                <input type="number" id="offerPrice" required>
+            </div>
+            <button class="btn btn-buy" onclick="confirmPurchase()">Confirm Purchase</button>
+        </div>
+    </div>
+
+    <!-- Message Modal -->
+    <div class="message-modal" id="messageModal">
+        <div class="message-content">
+            <p id="messageText"></p>
+            <button class="btn btn-buy" onclick="closeMessageModal()">OK</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="section__container footer__container">
+          <div class="footer__col">
+            <h4>Available at</h4>
+            <ul class="footer__links">
+              <li><a><i class="fa-solid fa-location-dot"></i> Ahmedabad</a></li>
+              <li><a><i class="fa-solid fa-location-dot"></i> Surat</a></li>
+              <li><a><i class="fa-solid fa-location-dot"></i> Rajkot</a></li>
+              <li><a><i class="fa-solid fa-location-dot"></i> Vadodara</a></li>
+              <li><a><i class="fa-solid fa-location-dot"></i> Jamnagar</a></li>
+              <li><a><i class="fa-solid fa-location-dot"></i> Kutch</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Quick links</h4>
+            <ul class="footer__links">
+              <li><a href="home.html"><i class="fa-solid fa-arrow-right"></i> Home</a></li>
+              <li><a href="buy.html"><i class="fa-solid fa-arrow-right"></i> Buy Car</a></li>
+              <li><a href="sell.html"><i class="fa-solid fa-arrow-right"></i> Sell Car</a></li>
+              <li><a href="contact.html"><i class="fa-solid fa-arrow-right"></i> Contact</a></li>
+              <li><a href="about.html"><i class="fa-solid fa-arrow-right"></i> About</a></li>
+              <li><a href="review.html"><i class="fa-solid fa-arrow-right"></i> Review</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Contact</h4>
+            <ul class="footer__links">
+              <li><a><i class="fa-solid fa-phone"></i> 079-7894561</a></li>
+              <li><a><i class="fa-solid fa-phone"></i> 4521789630</a></li>
+              <li><a><i class="fa-solid fa-envelope"></i> wheelsdeals@gmail.com</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4>Social Media</h4>
+            <ul class="footer__links">
+              <li><a href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank"><i class="fa-brands fa-facebook-f"></i> Facebook</a></li>
+              <li><a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+              <li><a href="https://twitter.com/intent/tweet?url=" target="_blank"><i class="fa-brands fa-twitter"></i> Twiter</a></li>
+              <li><a href="https://www.linkedin.com/learning/" target="_blank"><i class="fa-brands fa-linkedin"></i> Linkedin</a></li>
+            </ul>
+          </div>
+        </div>
+        </footer>
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script src="JS\main.js"></script>
+        <script src="JS\cart.js"></script>
+</body>
+</html>
